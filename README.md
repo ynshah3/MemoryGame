@@ -44,12 +44,12 @@ Here's a walkthrough of implemented user stories:
 ## Reflection Questions
 
 1) If you used any outside resources to help complete your submission (websites, books, people, etc) list them here.
-<br>
-I used StackOverflow when I encountered a bug while implementing EventListeners.
+
+-> I used StackOverflow when I encountered a bug while implementing EventListeners.
 
 2) What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words)
-<br>
-One challenge that I encountered while creating the submission was when I tried keeping HTML and JavaScript separate from each other.
+
+-> One challenge that I encountered while creating the submission was when I tried keeping HTML and JavaScript separate from each other.
 Instead of adding events in the form of `onclick`s or `onmouseup`s directly in the HTML inside the `<button>` tags, I added EventListeners in JavaScript by calling the object using `document.getElementById("xxx").addEventListener("click", function)`.
 I knew how to link functions to EventListeners which did not need any arguments to be passed to them at the time of function calling.
 However, when I needed to call functions like `guess` and `startTone` wherein I had to pass the button number as an argument,
@@ -62,17 +62,17 @@ Firstly, it solved the original problem that I had to come with a solution for.
 Secondly, I got to learn about creating and using arrow functions, how they can be helpful, and to understand this subtlety while incorporating EventListeners in JavaScript.
 
 3) What questions about web development do you have after completing your submission? (recommended 100 - 300 words)
-<br>
-Some questions that I have about web development after completing my project are:
+
+-> Some questions that I have about web development after completing my project are:
 - I have heard about many places that allow hosting of websites like Heroku, Firebase, etc. How are domain names looked upon by the computer industry? Are custom domains preferred and seen as a good sign over using default domains provided by hosting platforms?
 - What role does the backend play in web development? What do servers and server-side languages accomplish?
 - When learning to become a Full-Stack Software Engineer, there are a lot of ways to about learning like MEAN, MERN, Ruby on Rails, etc. While it is important to have working knowledge of most of these languages and it should not be an either-or, what would you recommend learning first and given what advantages?
 - Testing is really important in any field and given testing libraries and frameworks like Jest, Cypress, JSDOM, Google Lighthouse Tests, etc., how heavily should software be tested so that it is verifiable as well as shippable on time?
 
 4) If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words)
-<br>
-I have tried my best to make my code as readable as possible. I have added comments and JSDoc annotations to all classes and major functions in CSS and JavaScript, I have made use of CSS variables by defining `:root` inside `styles.css` so that I can reuse colors. I have also tried keeping HTML, CSS, and JavaScript separate and independent of each other.
-<br>
+
+-> I have tried my best to make my code as readable as possible. I have added comments and JSDoc annotations to all classes and major functions in CSS and JavaScript, I have made use of CSS variables by defining `:root` inside `styles.css` so that I can reuse colors. I have also tried keeping HTML, CSS, and JavaScript separate and independent of each other.
+
 Given more time, I would definitely first try to do proper unit testing via Jest, end-to-end testing using Cypress, and perform some Google Lighthouse Tests to see any places where I can optimize the code for better performance and accessibility. I would also like to setup a pipeline for the project that enforces linting of code for style and runs unit tests before allowing to merge the new code with the original code. I would like to setup a place like GitHub pages to show JSDoc documentation for the source code. If I get done with these, I will then move on to add more features like adding a ticking clock and limiting the time a user has to guess.
 
 ## License
