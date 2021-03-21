@@ -4,7 +4,7 @@
 
 Submitted by: **Yash Shah**
 
-Time spent: **6** hours spent in total
+Time spent: **9** hours spent in total
 
 Link to project: [https://glitch.com/edit/#!/traveling-artistic-jet?path=README.md%3A1%3A0](https://glitch.com/edit/#!/traveling-artistic-jet?path=README.md%3A1%3A0)
 
@@ -24,22 +24,30 @@ The following **optional** features are implemented:
 
 - [x] Any HTML page elements (including game buttons) has been styled differently than in the tutorial
 - [ ] Buttons use a pitch (frequency) other than the ones in the tutorial
-- [ ] More than 4 functional game buttons
-- [ ] Playback speeds up on each turn
-- [ ] Computer picks a different pattern each time the game is played
-- [ ] Player only loses after 3 mistakes (instead of on the first mistake)
-- [ ] Game button appearance change goes beyond color (e.g. add an image)
-- [ ] Game button sound is more complex than a single tone (e.g. an audio file, a chord, a sequence of multiple tones)
+- [x] More than 4 functional game buttons
+- [x] Playback speeds up on each turn
+- [x] Computer picks a different pattern each time the game is played
+- [x] Player only loses after 3 mistakes (instead of on the first mistake)
+- [x] Game button appearance change goes beyond color (e.g. add an image)
+- [x] Game button sound is more complex than a single tone (e.g. an audio file, a chord, a sequence of multiple tones)
 - [ ] User has a limited amount of time to enter their guess on each turn
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app!
+- [x] The app has two themes - a dark mode and a light mode
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![](assets/memorygame.gif)
+
+GIF showing a winning game:  
+![](assets/win.gif)
+
+GIF showing a losing game:  
+![](assets/lose.gif)
+
+GIF showing changing the color theme:  
+![](assets/color-theme.gif)
 
 ## Reflection Questions
 

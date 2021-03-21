@@ -5,14 +5,18 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Hello!</title>
+    
+    <title>Memory Game</title>
 
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <link id = "theme" rel="stylesheet" href="/style.css" />
+    
+    <!-- import icons -->
+    <script defer src="https://kit.fontawesome.com/ad11314e23.js" crossorigin="anonymous"></script>
 
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
+    
   </head>
 
   <body>
@@ -21,6 +25,10 @@
     </header>
 
     <main>
+      <div class="nav">
+        <i id="change-theme" class="fas fa-palette fa-2x"></i>
+      </div>
+      
       <p>
         Welcome to the game! Repeat back the pattern by pressing buttons.
       </p>
@@ -34,10 +42,18 @@
       </button>
 
       <div id="gameButtonArea">
+        <audio src="assets/bark.mp3" id="audio1"></audio>
+        <audio src="assets/zebra7.mp3" id="audio2"></audio>
+        <audio src="assets/kitten2.mp3" id="audio3"></audio>
+        <audio src="assets/elephant8.mp3" id="audio4"></audio>
+        <audio src="assets/Howl.mp3" id="audio5"></audio>
+        <audio src="assets/whalesurfaces.mp3" id="audio6"></audio>
         <button id="button1"></button>
         <button id="button2"></button>
         <button id="button3"></button>
         <button id="button4"></button>
+        <button id="button5"></button>
+        <button id="button6"></button>
       </div>
     </main>
 

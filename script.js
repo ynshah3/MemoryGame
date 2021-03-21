@@ -1,24 +1,44 @@
 // Global Variables and constants
-let pattern = [2, 2, 4, 3, 2, 1, 2, 4];
+let pattern = [];
 let progress = 0;
 let gamePlaying = false;
 let tonePlaying = false;
 let volume = 0.5;
 let guessCounter = 0;
+let clueHoldTime = 1000;
+let mistakes = 0;
 
-const CLUEHOLDTIME = 1000;
 const CLUEPAUSETIME = 333;
 const NEXTCLUEWAITTIME = 1000;
+
+//Change Theme
+document.getElementById("change-theme").addEventListener("click", () => {
+  let theme = document.getElementById("theme");
+  if (theme.href == "http://127.0.0.1:5500/style.css") {
+    theme.href = "http://127.0.0.1:5500/style2.css";
+  } else {
+    theme.href = "http://127.0.0.1:5500/style.css";
+  }
+});
 
 /**
  * Start the game upon clicking start button
  */
 function startGame() {
+  generateRandom();
   progress = 0;
+  mistakes = 0;
   gamePlaying = true;
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
   playClueSequence();
+}
+
+//Randomly generate numbers
+function generateRandom() {
+  for (let i = 0; i < 8; i++) {
+    pattern.push(Math.floor(Math.random() * 6) + 1);
+  }
 }
 
 /**
@@ -35,25 +55,16 @@ document.getElementById("startBtn").addEventListener("click", startGame);
 
 document.getElementById("stopBtn").addEventListener("click", stopGame);
 
-// Sound Synthesis Functions
-const FREQMAP = {
-  1: 261.6,
-  2: 329.6,
-  3: 392,
-  4: 466.2
-};
-
 /**
  * Start playing tone for button for specified time
- * @param btn button number {1-4}
+ * @param btn button number {1-6}
  * @param len time length to play tone
  */
 function playTone(btn, len) {
-  o.frequency.value = FREQMAP[btn];
-  g.gain.setTargetAtTime(volume, context.currentTime + 0.05, 0.025);
+  document.getElementById("audio" + btn).play();
   tonePlaying = true;
   setTimeout(function() {
-    stopTone();
+    stopTone(btn);
   }, len);
 }
 
@@ -63,50 +74,62 @@ function playTone(btn, len) {
  */
 function startTone(btn) {
   if (!tonePlaying) {
-    o.frequency.value = FREQMAP[btn];
-    g.gain.setTargetAtTime(volume, context.currentTime + 0.05, 0.025);
+    document.getElementById("audio" + btn).play();
     tonePlaying = true;
   }
 }
 
 /**
- * Stop playing tone
+ * Stop playing tone for specified button
+ * @param btn button number
  */
-function stopTone() {
-  g.gain.setTargetAtTime(0, context.currentTime + 0.05, 0.025);
+function stopTone(btn) {
+  document.getElementById("audio" + btn).pause();
   tonePlaying = false;
 }
-
-// Page Initialization
-// Init Sound Synthesizer
-let context = new AudioContext();
-let o = context.createOscillator();
-let g = context.createGain();
-g.connect(context.destination);
-g.gain.setValueAtTime(0, context.currentTime);
-o.connect(g);
-o.start(0);
 
 // Link audio to buttons
 document.getElementById("button1").addEventListener("mousedown", () => {
   startTone(1);
 });
-document.getElementById("button1").addEventListener("mouseup", stopTone);
+document.getElementById("button1").addEventListener("mouseup", () => {
+  stopTone(1);
+});
 
 document.getElementById("button2").addEventListener("mousedown", () => {
   startTone(2);
 });
-document.getElementById("button2").addEventListener("mouseup", stopTone);
+document.getElementById("button2").addEventListener("mouseup", () => {
+  stopTone(2);
+});
 
 document.getElementById("button3").addEventListener("mousedown", () => {
   startTone(3);
 });
-document.getElementById("button3").addEventListener("mouseup", stopTone);
+document.getElementById("button3").addEventListener("mouseup", () => {
+  stopTone(3);
+});
 
 document.getElementById("button4").addEventListener("mousedown", () => {
   startTone(4);
 });
-document.getElementById("button4").addEventListener("mouseup", stopTone);
+document.getElementById("button4").addEventListener("mouseup", () => {
+  stopTone(4);
+});
+
+document.getElementById("button5").addEventListener("mousedown", () => {
+  startTone(5);
+});
+document.getElementById("button5").addEventListener("mouseup", () => {
+  stopTone(5);
+});
+
+document.getElementById("button6").addEventListener("mousedown", () => {
+  startTone(6);
+});
+document.getElementById("button6").addEventListener("mouseup", () => {
+  stopTone(6);
+});
 
 /**
  * Light button automatically on cue
@@ -131,8 +154,8 @@ function clearButton(btn) {
 function playSingleClue(btn) {
   if (gamePlaying) {
     lightButton(btn);
-    playTone(btn, CLUEHOLDTIME);
-    setTimeout(clearButton, CLUEHOLDTIME, btn);
+    playTone(btn, clueHoldTime);
+    setTimeout(clearButton, clueHoldTime, btn);
   }
 }
 
@@ -143,9 +166,9 @@ function playClueSequence() {
   guessCounter = 0;
   let delay = NEXTCLUEWAITTIME;
   for (let i = 0; i <= progress; i++) {
-    console.log("play single clue: " + pattern[i] + " in " + delay + "ms");
     setTimeout(playSingleClue, delay, pattern[i]);
-    delay += CLUEHOLDTIME;
+    clueHoldTime -= 15;
+    delay += clueHoldTime;
     delay += CLUEPAUSETIME;
   }
 }
@@ -171,7 +194,6 @@ function winGame() {
  * @param btn button pressed
  */
 function guess(btn) {
-  console.log("user guessed: " + btn);
   if (!gamePlaying) {
     return;
   }
@@ -187,7 +209,13 @@ function guess(btn) {
       guessCounter++;
     }
   } else {
-    loseGame();
+    mistakes++;
+    if (mistakes == 3) {
+      loseGame();
+    } else {
+      guessCounter = 0;
+      alert("Your last guess was incorrect. You have " + (3 - mistakes) + " strikes left. Try again.")
+    }
   }
 }
 
@@ -203,4 +231,10 @@ document.getElementById("button3").addEventListener("click", () => {
 });
 document.getElementById("button4").addEventListener("click", () => {
   guess(4);
+});
+document.getElementById("button5").addEventListener("click", () => {
+  guess(5);
+});
+document.getElementById("button6").addEventListener("click", () => {
+  guess(6);
 });

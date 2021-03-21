@@ -14,19 +14,17 @@
 body {
   margin: 0;
   font-family: helvetica, arial, sans-serif;
-  background-color: #18191a;
-  color: #b0b3b8;
+  background-color: var(--white);
   text-align: center;
 }
 
 header {
   padding: 10px;
-  background-color: #242526;
+  background: linear-gradient(#e66465, #9198e5);
 }
 
 h1 {
   font-style: italic;
-  color: #e4e6eb;
   font-family: verdana, arial, sans-serif;
 }
 
@@ -40,10 +38,10 @@ footer {
   position: absolute;
   margin-top: 20px;
   padding: 20px 0;
-  background-color: #242526;
+  background: linear-gradient(#e66465, #9198e5);
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 829px) {
   footer {
     position: relative;
   }
@@ -61,7 +59,7 @@ footer {
 }
 
 #change-theme {
-  color: var(--white);
+  color: var(--black);
   cursor: pointer;
 }
 
@@ -142,76 +140,70 @@ button:active {
  * Button 1
  */
 #button1 {
-  background-image: url("assets/purple.jpeg");
-  background-size: cover;
+  background-color: #9932cc;
 }
 
 #button1:active,
 #button1.lit {
-  filter: brightness(50%);
+  background-color: #4b0082;
 }
 
 /**
  * Button 2
  */
 #button2 {
-  background-image: url("assets/yellow.jpeg");
-  background-size: cover;
+  background-color: #ffd700;
 }
 
 #button2:active,
 #button2.lit {
-  filter: brightness(50%);
+  background-color: #daa520;
 }
 
 /**
  * Button 3
  */
 #button3 {
-  background-image: url("assets/pink.jpeg");
-  background-size: cover;
+  background-color: #ffb6c1;
 }
 
 #button3:active,
 #button3.lit {
-  filter: brightness(50%);
+  background-color: #f08080;
 }
 
 /**
  * Button 4
  */
 #button4 {
-  background-image: url("assets/blue.jpeg");
-  background-size: cover;
+  background-color: #00ffff;
 }
 
 #button4:active,
 #button4.lit {
-  filter: brightness(50%);
+  background-color: #008b8b;
 }
 
 /**
  * Button 5
  */
 #button5 {
-  background-image: url("assets/orange.jpeg");
-  background-size: cover;
+  background-color: #ffa07a;
 }
 
 #button5:active,
 #button5.lit {
-  filter: brightness(50%);
+  background-color: #ff8c00;
 }
 
 /**
  * Button 6
  */
 #button6 {
-  background-image: url("assets/red.jpeg");
-  background-size: cover;
+  background-color: #cd5c5c;
 }
 
 #button6:active,
 #button6.lit {
-   filter: brightness(50%);
+  background-color: #b22222;
 }
