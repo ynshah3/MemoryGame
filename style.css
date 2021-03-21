@@ -1,0 +1,167 @@
+/*****************
+ * Common colors *
+ *****************/
+
+:root {
+  --black: #000;
+  --white: #fff;
+}
+
+/************
+ * HTML Tags*
+ ************/
+
+body {
+  margin: 0;
+  font-family: helvetica, arial, sans-serif;
+  background-color: #18191a;
+  color: #b0b3b8;
+  text-align: center;
+}
+
+header {
+  padding: 10px;
+  background-color: #242526;
+}
+
+h1 {
+  font-style: italic;
+  color: #e4e6eb;
+  font-family: verdana, arial, sans-serif;
+}
+
+p {
+  margin: 50px 0 20px 0;
+}
+
+footer {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  margin-top: 20px;
+  padding: 20px 0;
+  background-color: #242526;
+}
+
+@media only screen and (max-width: 829px) {
+  footer {
+    position: relative;
+  }
+}
+
+/***********
+ * Buttons *
+ ***********/
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none !important;
+  margin-bottom: 40px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  color: var(--black);
+}
+
+.hidden {
+  display: none;
+}
+
+/****************
+ * Start button *
+ ****************/
+
+#startBtn {
+  background-color: #32CD32;
+}
+
+#startBtn:hover {
+  background-color: #006400;
+  color: var(--white);
+}
+
+#startBtn:active {
+  background-color: #98fb98;
+  color: var(--black);
+}
+
+/***************
+ * Stop button *
+ ***************/
+
+#stopBtn {
+  background-color: #f44336;
+}
+
+#stopBtn:hover {
+  background-color: #800000;
+  color: var(--white);
+}
+
+#stopBtn:active {
+  background-color: #ff4500;
+  color: var(--black);
+}
+
+/****************
+ * Game buttons *
+ ****************/
+
+#gameButtonArea > button {
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+}
+
+/**
+ * Button 1
+ */
+#button1 {
+  background-color: #9932cc;
+}
+
+#button1:active,
+#button1.lit {
+  background-color: #4b0082;
+}
+
+/**
+ * Button 2
+ */
+#button2 {
+  background-color: #ffd700;
+}
+
+#button2:active,
+#button2.lit {
+  background-color: #daa520;
+}
+
+/**
+ * Button 3
+ */
+#button3 {
+  background-color: #ffb6c1;
+}
+
+#button3:active,
+#button3.lit {
+  background-color: #f08080;
+}
+
+/**
+ * Button 4
+ */
+#button4 {
+  background-color: #00ffff;
+}
+
+#button4:active,
+#button4.lit {
+  background-color: #008b8b;
+}
