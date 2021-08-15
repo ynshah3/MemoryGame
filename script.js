@@ -14,10 +14,10 @@ const NEXTCLUEWAITTIME = 1000;
 //Change Theme
 document.getElementById("change-theme").addEventListener("click", () => {
   let theme = document.getElementById("theme");
-  if (theme.href == "http://127.0.0.1:5500/style.css") {
-    theme.href = "http://127.0.0.1:5500/style2.css";
+  if (theme.href == "style.css") {
+    theme.href = "style2.css";
   } else {
-    theme.href = "http://127.0.0.1:5500/style.css";
+    theme.href = "style.css";
   }
 });
 
