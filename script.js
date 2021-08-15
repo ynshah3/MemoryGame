@@ -14,10 +14,15 @@ const NEXTCLUEWAITTIME = 1000;
 //Change Theme
 document.getElementById("change-theme").addEventListener("click", () => {
   let theme = document.getElementById("theme");
-  if (theme.href == "/style.css") {
-    theme.href = "/style2.css";
+  console.log(theme);
+  if (theme.getAttribute("rel") === "stylesheet") {
+    console.log('hello')
+    theme.setAttribute("rel", "stylesheet2");
+    theme.setAttribute("href", "./style2.css");
   } else {
-    theme.href = "/style.css";
+    console.log('bye')
+    theme.setAttribute("rel", "stylesheet");
+    theme.setAttribute("href", "./style.css");
   }
 });
 
